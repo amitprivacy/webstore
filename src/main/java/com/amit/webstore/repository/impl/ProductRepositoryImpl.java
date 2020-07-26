@@ -1,9 +1,10 @@
 package com.amit.webstore.repository.impl;
 
-import static com.amit.webstore.constants.DatabaseQuery.GET_ALL_PRODUCT;
-import static com.amit.webstore.constants.DatabaseQuery.UPDATE_STOCK;
 import static com.amit.webstore.constants.DatabaseQuery.FILTER_BY_CATEGORY;
 import static com.amit.webstore.constants.DatabaseQuery.FILTER_BY_CATEGORY_MANFACTURER;
+import static com.amit.webstore.constants.DatabaseQuery.FILTER_BY_ID;
+import static com.amit.webstore.constants.DatabaseQuery.GET_ALL_PRODUCT;
+import static com.amit.webstore.constants.DatabaseQuery.UPDATE_STOCK;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -79,5 +80,18 @@ public class ProductRepositoryImpl implements ProductRepository {
 		
 		return jdbcTemplate.query(FILTER_BY_CATEGORY_MANFACTURER, filterParams, new ProductMapper());
 	}
+
+	@Override
+	public Product getProductById(String productId) {
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("productID", productId);
+		
+		System.out.println(params);
+		return jdbcTemplate.queryForObject(FILTER_BY_ID, params, new ProductMapper());
+	}
+
+	
+
 
 }

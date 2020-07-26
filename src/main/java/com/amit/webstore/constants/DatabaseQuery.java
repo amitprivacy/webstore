@@ -9,4 +9,8 @@ public class DatabaseQuery {
 	public static final String FILTER_BY_CATEGORY="SELECT * FROM PRODUCTS WHERE CATEGORY = :category";
 	
 	public static final String FILTER_BY_CATEGORY_MANFACTURER ="SELECT * FROM PRODUCTS WHERE CATEGORY IN( :categories ) AND MANUFACTURER IN( :brand )";
+	
+	public static final String FILTER_BY_PRICE="SELECT * FROM PRODUCTS WHERE PRICE BETWEEN :min AND :max";
+	
+	public static final String FILTER_BY_ID="SELECT * FROM PRODUCTS WHERE ID = :productID";
 }
