@@ -1,6 +1,7 @@
 package com.amit.webstore.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,20 @@ public class ProductServiceImpl implements ProductService {
 			}
 		}
 
+	}
+	@Override
+	public List<Product> getAllProduct() {
+		
+		return repository.getAllProduct();
+	}
+	@Override
+	public List<Product> getProductByCategory(String category) {
+		return repository.getProductByCategory(category);
+	}
+	@Override
+	public List<Product> getProductByFilter(Map<String, List<String>> filterParams) {
+		
+		return repository.getProductByFilter(filterParams);
 	}
 
 }
