@@ -13,4 +13,7 @@ public class DatabaseQuery {
 	public static final String FILTER_BY_PRICE="SELECT * FROM PRODUCTS WHERE PRICE BETWEEN :min AND :max";
 	
 	public static final String FILTER_BY_ID="SELECT * FROM PRODUCTS WHERE ID = :productID";
+	
+	public static final String INSERT_PRODUCT_IN_DB="INSERT INTO PRODUCTS(ID,NAME,DESCRIPTION,UNIT_PRICE,MANUFACTURER,CATEGORY,CONDITIONS,UNITS_IN_STOCK,UNITS_IN_ORDER,DISCONTINUED)"
+			+ "VALUES(:id,:name, :desc, :price, :manufacturer, :category,:condition,:instock,:inorder,:discontinued)";
 }

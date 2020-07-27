@@ -1,5 +1,6 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <html>
 <head>
@@ -20,14 +21,18 @@
 	</section>
 	<section class="container">
 		<div class="row">
-			<div class="col-md-4">
+		<div class="col-md-5"> 
+         <img src="<c:url value="/img/${product.productId}.jpg">
+         </c:url>" alt="image"  style = "width:100%"/> 
+      </div> 
+			<div class="col-xs-4">
 				<div class="thumbnail">
 
 					<div class="caption">
 						<h3>${product.name}</h3>
 						<p>${product.description}</p>
 						<p>
-							<strong>Item Code : </strong><span class="label label warning">${product.productId}
+							<strong>Item Code : </strong><span class="label label-success">${product.productId}
 							</span>
 						</p>
 						<p>
@@ -42,6 +47,9 @@
 						</p>
 						<h4>${product.unitPrice}USD</h4>
 						<p>
+						 <a href="<spring:url value="/products" />" class="btn btn-primary btn-large"> <span
+								class="glyphicon-hand-left glyphicon"> </span> Back to Products
+							</a>
 							<a href="#" class="btn btn-warning btn-large"> <span
 								class="glyphicon-shopping-cart glyphicon"> </span> Order Now
 							</a>

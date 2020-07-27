@@ -48,6 +48,10 @@ public class ProductServiceImpl implements ProductService {
 		
 		return repository.getProductById(id);
 	}
+	@Override
+	public void addProduct(Product product) {
+		repository.addProduct(product);
+	}
 
 	
 }

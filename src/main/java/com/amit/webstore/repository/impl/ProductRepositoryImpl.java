@@ -5,6 +5,7 @@ import static com.amit.webstore.constants.DatabaseQuery.FILTER_BY_CATEGORY_MANFA
 import static com.amit.webstore.constants.DatabaseQuery.FILTER_BY_ID;
 import static com.amit.webstore.constants.DatabaseQuery.GET_ALL_PRODUCT;
 import static com.amit.webstore.constants.DatabaseQuery.UPDATE_STOCK;
+import static com.amit.webstore.constants.DatabaseQuery.INSERT_PRODUCT_IN_DB;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -87,8 +88,25 @@ public class ProductRepositoryImpl implements ProductRepository {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("productID", productId);
 		
-		System.out.println(params);
 		return jdbcTemplate.queryForObject(FILTER_BY_ID, params, new ProductMapper());
+	}
+
+	@Override
+	public void addProduct(Product product) {
+		
+		Map<String,Object> params = new HashMap<String, Object>();
+		params.put("id", product.getProductId());
+		params.put("name",product.getName());
+		params.put("desc", product.getDescription());
+		params.put("price", product.getUnitPrice());
+		params.put("manufacturer", product.getManufacturar());
+		params.put("category", product.getCategory());
+		params.put("condition", product.getCondition());
+		params.put("instock", product.getUnitsInStock());
+		params.put("inorder", product.getUnitsInOrder());
+		params.put("discontinued", product.isDisconinued());
+		
+		jdbcTemplate.update(INSERT_PRODUCT_IN_DB, params);
 	}
 
 	
