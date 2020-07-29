@@ -3,9 +3,17 @@ package com.amit.webstore.domain;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@XmlRootElement
 public class Product implements Serializable {
 
-	private static final long serialVersionUID = -6428203370342796669L;
+	private static final long serialVersionUID = 1L;
 	
 	private String productId;
 	
@@ -27,6 +35,22 @@ public class Product implements Serializable {
 	
 	private String condition;
 	
+	@JsonIgnore
+	private MultipartFile productImage;
+	
+	@XmlTransient
+	public MultipartFile getProductImage() {
+		return productImage;
+	}
+
+
+
+	public void setProductImage(MultipartFile productImage) {
+		this.productImage = productImage;
+	}
+
+
+
 	public Product()
 	{
 	}

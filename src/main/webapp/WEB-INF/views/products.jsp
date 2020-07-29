@@ -22,13 +22,20 @@
  
            <section class="container"> 
               <div class="row"> 
-              <div class="card container-fluid">
+        
+      <!--   <div class="col-sm-4 py-2">
+            <div class="card card-body h-100">
+                Card. I'm just a simple card-block.
+            </div>
+        </div>  -->
+              
               <c:forEach items="${products}" var="product">
-                 <div class="col-ms-6 col-md-3" style="padding-bottom: 20px"> 
-                
+              
+                 <div class="card card-body h-100" style="padding-bottom: 20px"> 
+                <div class="col-sm-4 py-2">
                     <div class="thumbnail">
                    <img src="<c:url value="/img/${product.productId}.jpg">
-      </c:url>" alt="image"  style = "width:100%"/>
+      </c:url>" alt="image"  style = "width:inherit; height: inherit;"/>
                        <div class="caption"> 
                           <h3>${product.name}</h3> 
                           <p>${product.description}</p> 
@@ -43,10 +50,10 @@
                        
                     </div> 
                  </div> 
-                 
+              </div>    
                  </c:forEach>
                  </div>
-              </div> 
+              
              
            </section> 
         </body> 

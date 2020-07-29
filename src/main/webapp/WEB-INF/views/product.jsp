@@ -23,7 +23,7 @@
 		<div class="row">
 		<div class="col-md-5"> 
          <img src="<c:url value="/img/${product.productId}.jpg">
-         </c:url>" alt="image"  style = "width:100%"/> 
+         </c:url>" alt="image"  style = "width:inherit%"/> 
       </div> 
 			<div class="col-xs-4">
 				<div class="thumbnail">

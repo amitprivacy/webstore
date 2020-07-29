@@ -14,16 +14,10 @@ public class HomeController {
 	{
 		model.addAttribute("greeting","Welcome to Web Store");
 		model.addAttribute("tagline", "The one and only Amazing Web store");
-		redirectAttribute.addFlashAttribute("greeting","Welcome to Web Store");
-		redirectAttribute.addFlashAttribute("tagline", "The one and only Amazing Web store");
-		return "redirect:/welcome/greeting";
-	}
-	
-	@RequestMapping("/welcome/greeting")
-	public String greeting()
-	{
+		
 		return "welcome";
 	}
+	
 	
 
 }

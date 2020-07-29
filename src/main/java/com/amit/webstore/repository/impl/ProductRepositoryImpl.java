@@ -14,11 +14,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.amit.webstore.domain.Product;
+import com.amit.webstore.exception.ProductNotFoundException;
 import com.amit.webstore.repository.ProductRepository;
 
 @Repository
@@ -87,8 +89,12 @@ public class ProductRepositoryImpl implements ProductRepository {
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("productID", productId);
-		
+		try {
 		return jdbcTemplate.queryForObject(FILTER_BY_ID, params, new ProductMapper());
+		}catch(DataAccessException dae)
+		{
+			throw new ProductNotFoundException(productId);
+		}
 	}
 
 	@Override

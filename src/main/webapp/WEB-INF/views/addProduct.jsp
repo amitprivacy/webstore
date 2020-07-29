@@ -1,6 +1,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %> 
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%> 
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <html> 
       <head> 
       <meta http-equiv="Content-Type" content="text/html; 
@@ -19,7 +21,7 @@
             </div> 
          </section> 
          <section class="container"> 
-            <form:form  method="POST" modelAttribute="newProduct" class="form-horizontal"> 
+            <form:form method="post" modelAttribute="newProduct" class="form-horizontal" enctype="multipart/form-data"> 
                <fieldset> 
                   <legend>Add new product</legend> 
  
@@ -90,7 +92,15 @@
                          value="Refurbished" />Refurbished 
                      </div> 
                   </div> 
-             
+             	 <div class="form-group"> 
+                     <label class="control-label col-lg-2" 
+                      for="productImage">
+                      <spring:message code="addProduct.form.productImage.label"/>
+                      </label> 
+                     <div class="col-lg-10"> 
+                       <form:input id="productImage" path="productImage" type="file" class="form:input-large"/> 
+                     </div> 
+                  </div> 
                   <div class="form-group"> 
                      <div class="col-lg-offset-2 col-lg-10"> 
                         <input type="submit" id="btnAdd" class="btn 
