@@ -12,6 +12,11 @@
       <title>Products</title> 
       </head> 
       <body> 
+      <section> 
+         <div class="pull-right" style="padding-right:50px"> 
+            <a href="?language=en" >English</a>|<a href="?language=nl" >Dutch</a>                
+         </div> 
+      </section> 
          <section> 
             <div class="jumbotron"> 
                <div class="container"> 
@@ -35,35 +40,35 @@
                   
                   <div class="form-group"> 
                      <label class="control-label col-lg-2 col-lg-2" 
-                      for="name">Product Name</label> 
+                      for="name"><spring:message code="addProduct.form.name.label"/></label> 
                      <div class="col-lg-10"> 
                         <form:input id="name" path="name" type="text" class="form:input-large"/> 
                      </div> 
                   </div> 
                   <div class="form-group"> 
                      <label class="control-label col-lg-2 col-lg-2" 
-                      for="name">Unit Price</label> 
+                      for="name"><spring:message code="addProduct.form.unitPrice.label"/></label> 
                      <div class="col-lg-10"> 
                         <form:input id="unitPrice" path="unitPrice" type="text" class="form:input-large"/> 
                      </div> 
                   </div>
                   <div class="form-group"> 
                      <label class="control-label col-lg-2 col-lg-2" 
-                      for="manufacturar">Manufacturer</label> 
+                      for="manufacturar"><spring:message code="addProduct.form.manufacturer.label"/></label> 
                      <div class="col-lg-10"> 
                         <form:input id="manufacturar" path="manufacturar" type="text" class="form:input-large"/> 
                      </div> 
                   </div>
                   <div class="form-group"> 
                      <label class="control-label col-lg-2 col-lg-2" 
-                      for="category">Category</label> 
+                      for="category"><spring:message code="addProduct.form.category.label"/></label> 
                      <div class="col-lg-10"> 
                         <form:input id="category" path="category" type="text" class="form:input-large"/> 
                      </div> 
                   </div>
                   <div class="form-group"> 
                      <label class="control-label col-lg-2 col-lg-2" 
-                      for="unitInStock">Unit In Stock</label> 
+                      for="unitInStock"><spring:message code="addProduct.form.unitsInStock.label"/></label> 
                      <div class="col-lg-10"> 
                         <form:input id="unitsInStock" path="unitsInStock" type="text" class="form:input-large"/> 
                      </div> 
@@ -71,7 +76,7 @@
                  
                   <div class="form-group"> 
                      <label class="control-label col-lg-2" 
-                      for="description">Description</label> 
+                      for="description"><spring:message code="addProduct.form.description.label"/></label> 
                      <div class="col-lg-10"> 
                         <form:textarea id="description" 
                          path="description" rows = "2"/> 
@@ -82,7 +87,7 @@
              
                   <div class="form-group"> 
                      <label class="control-label col-lg-2" 
-                      for="condition">Condition</label> 
+                      for="condition"><spring:message code="addProduct.form.condition.label"/></label> 
                      <div class="col-lg-10"> 
                         <form:radiobutton path="condition" 
                          value="New" />New  

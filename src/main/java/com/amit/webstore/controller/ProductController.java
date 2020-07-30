@@ -90,6 +90,12 @@ public class ProductController {
 		return "addProduct";
 	}
 	
+	@RequestMapping("/invalid/promocode")
+	public String invalidPromoCode()
+	{
+		return "invalidPromoCode";
+	}
+	
 	@RequestMapping(value="/products/add", method = RequestMethod.POST)
 	public String processAddNewProductForm(@ModelAttribute("newProducts")Product product,BindingResult result, HttpServletRequest request)
 	{
