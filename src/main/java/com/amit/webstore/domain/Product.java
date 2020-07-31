@@ -3,6 +3,10 @@ package com.amit.webstore.domain;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -15,10 +19,15 @@ public class Product implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Pattern(regexp="P[1-9]+",message="{Pattern.Product.productId.validation}")
 	private String productId;
 	
+	@Size(min=4, max=50,message="{Size.Product.name.validation}")
 	private String name;
 	
+	
+	@Min(value=0, message="{Min.Product.unitPrice.validation}")
+	@Digits(integer=8,fraction = 2, message="{Digits.Product.unitPrice.validation}")
 	private BigDecimal unitPrice;
 	
 	private String description;
@@ -27,9 +36,9 @@ public class Product implements Serializable {
 	
 	private String category;
 	
-	private long unitsInStock;
+	private Long unitsInStock;
 	
-	private long unitsInOrder;
+	private Long unitsInOrder;
 	
 	private boolean disconinued;
 	
@@ -114,19 +123,19 @@ public class Product implements Serializable {
 		this.category = category;
 	}
 
-	public long getUnitsInStock() {
+	public Long getUnitsInStock() {
 		return unitsInStock;
 	}
 
-	public void setUnitsInStock(long unitsInStock) {
+	public void setUnitsInStock(Long unitsInStock) {
 		this.unitsInStock = unitsInStock;
 	}
 
-	public long getUnitsInOrder() {
+	public Long getUnitsInOrder() {
 		return unitsInOrder;
 	}
 
-	public void setUnitsInOrder(long unitsInOrder) {
+	public void setUnitsInOrder(Long unitsInOrder) {
 		this.unitsInOrder = unitsInOrder;
 	}
 

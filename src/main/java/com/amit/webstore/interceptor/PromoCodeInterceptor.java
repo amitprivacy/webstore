@@ -39,14 +39,12 @@ public class PromoCodeInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 		
 		String givenPromoCode = request.getParameter("promo");
-		System.out.println("PromoCode: "+givenPromoCode);
-		
 		if(promoCode.equals(givenPromoCode))
 		{
 			response.sendRedirect(request.getContextPath()+"/"+offerRedirect);
 		}
 		else {
-			response.sendRedirect(errorRedirect);
+			response.sendRedirect(request.getContextPath()+"/"+errorRedirect);
 		}
 			return false;
 		}

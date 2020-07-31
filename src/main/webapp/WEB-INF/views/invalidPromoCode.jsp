@@ -23,7 +23,7 @@
          <section> 
             <div class="container"> 
                <p> 
-                  <a href="<spring:url value="/market/products" />"
+                  <a href="<spring:url value="/products"/>"
         class="btn btn-primary"> 
                      <span class="glyphicon-hand-left glyphicon">  
           </span> products 

@@ -3,12 +3,15 @@ package com.amit.webstore.config;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import javax.validation.Validator;
+
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -150,10 +153,24 @@ public class WebApplicationContextConfig extends WebMvcConfigurerAdapter {
 		
 		PromoCodeInterceptor interceptor = new PromoCodeInterceptor();
 		interceptor.setPromoCode("OFF3R");
-		interceptor.setOfferRedirect("/products");
-		interceptor.setErrorRedirect("/invalid/promocode");
+		interceptor.setOfferRedirect("products");
+		interceptor.setErrorRedirect("invalid/promocode");
 		
 		return interceptor;
+	}
+	
+	@Bean(name="validator")
+	public LocalValidatorFactoryBean validator()
+	{
+		LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
+		bean.setValidationMessageSource(messageSource());
+		return bean;
+	}
+	
+	@Override
+	public org.springframework.validation.Validator getValidator()
+	{
+		return validator();
 	}
 	
 	

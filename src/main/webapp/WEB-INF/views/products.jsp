@@ -16,6 +16,10 @@
                  <div class="container"> 
                     <h1>Products</h1> 
                     <p>All the available products in our store</p> 
+                    <div class="pull-right" style="padding-right:50px"> 
+            
+            <a href="<c:url value="/logout" />">Logout</a>            
+         </div>
                  </div> 
               </div> 
            </section> 

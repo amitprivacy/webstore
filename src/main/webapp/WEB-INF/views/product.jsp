@@ -17,8 +17,14 @@
 			<div class="container">
 				<h1>Products</h1>
 			</div>
+			<div class="pull-right" style="padding-right:50px"> 
+            
+            <a href="<c:url value="/logout" />">Logout</a>            
+         </div>
 		</div>
-	</section>
+	
+	
+         </section>
 	<section class="container">
 		<div class="row">
 		<div class="col-md-5"> 

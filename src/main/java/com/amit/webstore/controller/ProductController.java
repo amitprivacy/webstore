@@ -1,11 +1,11 @@
 package com.amit.webstore.controller;
 
 import java.io.File;
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -85,8 +85,8 @@ public class ProductController {
 	@RequestMapping(value="/products/add", method = RequestMethod.GET )
 	public String getAddNewProductForm(Model model)
 	{
-	Product product = new Product("P1245","EarPhone",new BigDecimal(10));
-		model.addAttribute("newProduct", product);
+	Product product = new Product();
+		model.addAttribute("newProducts", product);
 		return "addProduct";
 	}
 	
@@ -97,9 +97,13 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/products/add", method = RequestMethod.POST)
-	public String processAddNewProductForm(@ModelAttribute("newProducts")Product product,BindingResult result, HttpServletRequest request)
+	public String processAddNewProductForm(@Valid @ModelAttribute("newProducts")Product product,BindingResult result, HttpServletRequest request)
 	{
 		String suppressedFields[] = result.getSuppressedFields();
+		if(result.hasErrors())
+		{
+			return "addProduct";
+		}
 		if (suppressedFields.length > 0) { 
 			throw new RuntimeException("Attempting to bind disallowed fields: " + StringUtils.arrayToCommaDelimitedString(suppressedFields)); 
 			}
