@@ -16,4 +16,10 @@ public class DatabaseQuery {
 	
 	public static final String INSERT_PRODUCT_IN_DB="INSERT INTO PRODUCTS(ID,NAME,DESCRIPTION,UNIT_PRICE,MANUFACTURER,CATEGORY,CONDITIONS,UNITS_IN_STOCK,UNITS_IN_ORDER,DISCONTINUED)"
 			+ "VALUES(:id,:name, :desc, :price, :manufacturer, :category,:condition,:instock,:inorder,:discontinued)";
+	
+	public static final String GET_CART_ITEMS ="SELECT * FROM  CART_ITEM WHERE CART_ID = ";
+	
+	public static final String INSERT_CART_SQL="INSERT INTO CART(ID) VALUES (:id)";
+	
+	public static final String INSERT_CART_ITEM_SQL =  "INSERT INTO CART_ITEM(ID,PRODUCT_ID ,CART_ID,QUANTITY)"  + "VALUES (:id, :product_id, :cart_id, :quantity)";
 }

@@ -11,8 +11,9 @@
         <title>Products</title> 
         </head> 
         <body> 
+       
            <section> 
-              <div class="jumbotron"> 
+              <div class="jumbotron jumbotron-fluid"> 
                  <div class="container"> 
                     <h1>Products</h1> 
                     <p>All the available products in our store</p> 
@@ -35,7 +36,7 @@
               
               <c:forEach items="${products}" var="product">
               
-                 <div class="card card-body h-100" style="padding-bottom: 20px"> 
+                 <div class="card card-body h-80" style="padding-bottom: 20px;"> 
                 <div class="col-sm-4 py-2">
                     <div class="thumbnail">
                    <img src="<c:url value="/img/${product.productId}.jpg">
@@ -46,7 +47,7 @@
            <p>${product.unitPrice} USD</p> 
            <p>Available <b>${product.unitsInStock}</b> units in stock</p>
            <p>
-           		<a href="<spring:url value="/product/?id=${product.productId}"/>" class="btn btn-primary">
+           		<a href="<spring:url value="/product/?id=${product.productId}"/>" class="btn btn-primary" style="width: 100%">
            		<span class="glyphicon glyphicon-eye-open"></span> Details
            		</a>
            </p>
@@ -54,7 +55,8 @@
                        
                     </div> 
                  </div> 
-              </div>    
+              </div>   
+            
                  </c:forEach>
                  </div>
               

@@ -93,6 +93,7 @@ public class ProductRepositoryImpl implements ProductRepository {
 		return jdbcTemplate.queryForObject(FILTER_BY_ID, params, new ProductMapper());
 		}catch(DataAccessException dae)
 		{
+			System.out.println("No Item found with name: "+productId);
 			throw new ProductNotFoundException(productId);
 		}
 	}

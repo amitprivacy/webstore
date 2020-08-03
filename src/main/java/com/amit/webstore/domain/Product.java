@@ -12,6 +12,8 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.amit.webstore.validator.Category;
+import com.amit.webstore.validator.ProductId;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @XmlRootElement
@@ -20,6 +22,7 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Pattern(regexp="P[1-9]+",message="{Pattern.Product.productId.validation}")
+	@ProductId
 	private String productId;
 	
 	@Size(min=4, max=50,message="{Size.Product.name.validation}")
@@ -34,6 +37,7 @@ public class Product implements Serializable {
 	
 	private String manufacturar;
 	
+	@Category
 	private String category;
 	
 	private Long unitsInStock;
