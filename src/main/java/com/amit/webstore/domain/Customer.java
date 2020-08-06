@@ -1,26 +1,34 @@
 package com.amit.webstore.domain;
 
-public class Customer {
+import java.io.Serializable;
 
-	private String customerId;
+public class Customer implements Serializable {
+
+	private static final long serialVersionUID = -1258894533716081736L;
+	
+	private Long customerId;
 	private String name;
-	private String address;
-	private int noOfOrdersMade;
-	public Customer(String customerId, String name, String address, int noOfOrdersMade) {
+	private Address billingAddress;
+	private String phoneNumber;
+	
+	public Customer()
+	{
 		super();
-		this.customerId = customerId;
-		this.name = name;
-		this.address = address;
-		this.noOfOrdersMade = noOfOrdersMade;
+		this.billingAddress= new Address();
 	}
 	
-	public Customer() { }
+	public Customer(Long customerId, String name)
+	{
+		this();
+		this.customerId=customerId;
+		this.name=name;
+	}
 
-	public String getCustomerId() {
+	public Long getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(String customerId) {
+	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
 
@@ -32,20 +40,20 @@ public class Customer {
 		this.name = name;
 	}
 
-	public String getAddress() {
-		return address;
+	public Address getBillingAddress() {
+		return billingAddress;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setBillingAddress(Address billingAddress) {
+		this.billingAddress = billingAddress;
 	}
 
-	public int getNoOfOrdersMade() {
-		return noOfOrdersMade;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setNoOfOrdersMade(int noOfOrdersMade) {
-		this.noOfOrdersMade = noOfOrdersMade;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	@Override

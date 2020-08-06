@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.amit.webstore.domain.Cart;
 import com.amit.webstore.dto.CartDto;
+import com.amit.webstore.exception.InvalidCartException;
 import com.amit.webstore.repository.CartRepository;
 import com.amit.webstore.service.CartService;
 
@@ -44,5 +45,24 @@ public class CartServiceImpl implements CartService {
      public void removeItem(String cartId, String  
   productId) { 
         cartRepository.removeItem(cartId, productId); 
-     } 
+     }
+
+	@Override
+	public void clearCart(String cartId) {
+		cartRepository.clearCart(cartId);
+		
+	}
+
+	@Override
+	public Cart validate(String cartId) {
+		
+		Cart cart = cartRepository.read(cartId);
+		
+		if(cart==null || cart.getCartItem().size()==0)
+		{
+			throw new InvalidCartException(cartId);
+		}
+		return cart;
+		
+	} 
 }

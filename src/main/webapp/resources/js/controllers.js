@@ -32,6 +32,6 @@
               $http.put('/webstore/rest/cart/remove/' + productId) 
                   .success(function(data) { 
                       $scope.refreshCart($scope.cartId); 
-                  }); 
+                  }).error(function(data){alert("Cant remove cart ITEM")}); 
           }; 
       }); 

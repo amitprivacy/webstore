@@ -30,7 +30,9 @@
 		<div ng-controller="cartCtrl" ng-init="initCartId('${cartId}')">
 
 			<div>
-				<a class="btn btn-danger pull-left" ng-click="clearCart()"> <span class="glyphicon glyphicon-remove- sign"></span> Clear Cart</a> <a href="#" class="btn btn-success  pull-right"> <span
+				<a class="btn btn-danger pull-left" ng-click="clearCart()"> <span
+					class="glyphicon glyphicon-remove- sign"></span> Clear Cart
+				</a> <a href="<spring:url value="/checkout?cartId=${cartId}"/>" class="btn btn-success  pull-right"> <span
 					class="glyphicon-shopping-cart glyphicon"></span> Checkout
 				</a>
 			</div>
@@ -43,11 +45,14 @@
 					<th>Action</th>
 				</tr>
 				<tr ng-repeat="item in cart.cartItem">
-					<td>{{item.product.productId}}</td>
+					<td>{{item.product.productId}}-{{item.product.name}}</td>
 					<td>{{item.product.unitPrice}}</td>
 					<td>{{item.quantity}}</td>
 					<td>{{item.totalPrice}}</td>
-					<td><a href="#" class="label label-danger" ng-click="removeFromCart(item.product.productId)"> <span class="glyphicon glyphicon-remove" /></span> Remove</a></td>
+					<td><a href="#" class="label label-danger"
+						ng-click="removeFromCart(item.product.productId)"> <span
+							class="glyphicon glyphicon-remove" /></span> Remove
+					</a></td>
 				</tr>
 				<tr>
 					<th></th>
@@ -58,7 +63,9 @@
 				</tr>
 			</table>
 
-			<a href="<spring:url  value="/products" />" class="btn btn-default"> <span class="glyphicon-hand-left glyphicon"></span> Continue shopping
+			<a href="<spring:url  value="/products" />" class="btn btn-default">
+				<span class="glyphicon-hand-left glyphicon"></span> Continue
+				shopping
 			</a>
 		</div>
 	</section>

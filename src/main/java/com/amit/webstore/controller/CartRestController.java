@@ -63,7 +63,7 @@ public class CartRestController {
 	
 	@RequestMapping(value="/remove/{productId}",method=RequestMethod.PUT)
 	@ResponseStatus(value=HttpStatus.OK)
-	public void removeItem(String productId, HttpSession session)
+	public void removeItem(@PathVariable String productId, HttpSession session)
 	{
 		cartService.removeItem(session.getId(), productId);
 	}

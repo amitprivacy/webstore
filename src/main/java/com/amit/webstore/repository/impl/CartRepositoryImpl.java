@@ -147,15 +147,23 @@ System.out.println("Data Put inside Map. First Item Product ID: "+cartDto.getCar
    } 
 
     @Override 
-    public void removeItem(String cartId, String  
- productId) { 
+    public void removeItem(String cartId, String productId) { 
        String SQL_DELETE_CART_ITEM = "DELETE FROM CART_ITEM WHERE PRODUCT_ID = :productId AND CART_ID = :id"; 
-  
+       System.out.println("Produt ID: "+productId+"\nCart ID: "+cartId);
        Map<String, Object> params = new HashMap<String, Object>();    
       params.put("id", cartId); 
        params.put("productId", productId); 
   
-       jdbcTempleate.update(SQL_DELETE_CART_ITEM,  
- params);   
-    } 
+       jdbcTempleate.update(SQL_DELETE_CART_ITEM, params);   
+    }
+
+	@Override
+	public void clearCart(String cartId) {
+		String SQL_DELETE_CART_ITEM = "DELETE FROM CART_ITEM WHERE CART_ID= :id";
+		
+		Map<String, Object> param = new HashMap<>();
+		param.put("id", cartId);
+		jdbcTempleate.update(SQL_DELETE_CART_ITEM, param);
+		
+	} 
 }
